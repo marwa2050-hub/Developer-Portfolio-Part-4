@@ -1,0 +1,58 @@
+/* Root theme variables (pink accent) */
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f6fb;
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --accent-color: #ff66a3; /* pink accent */
+  --border-color: #e6e6f0;
+  --transition: 250ms ease;
+  --card-radius: 12px;
+  --glass: rgba(255,255,255,0.6);
+}
+
+/* Dark theme */
+[data-theme="dark"] {
+  --bg-primary: #0b0f1a;
+  --bg-secondary: #0f1724;
+  --text-primary: #f3f4f6;
+  --text-secondary: #9ca3af;
+  --accent-color: #ff66a3;
+  --border-color: #1f2937;
+}
+
+/* Ocean theme (custom) */
+[data-theme="ocean"] {
+  --bg-primary: #001f2f;
+  --bg-secondary: #013a52;
+  --text-primary: #e6fbff;
+  --text-secondary: #bfe8ff;
+  --accent-color: #ff66a3;
+  --border-color: #01445d;
+}
+
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; margin: 0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background var(--transition), color var(--transition);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* layout */
+.app { display:flex; min-height:100vh; flex-direction:column; }
+.main-content { flex:1; padding: 2rem 1rem; max-width: 1200px; margin: 0 auto; }
+
+/* utility */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 1rem; }
+
+/* links/buttons */
+a { color: var(--accent-color); }
+button { cursor: pointer; border: none; background: var(--accent-color); color: white; padding: 0.6rem 0.9rem; border-radius: 10px; transition: transform 0.15s ease; }
+button:hover { transform: translateY(-2px); }
+
+/* responsive */
+@media (max-width: 768px) {
+  .main-content { padding: 1rem; }
+}

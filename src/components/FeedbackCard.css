@@ -1,0 +1,7 @@
+.feedback-card { background:var(--bg-secondary); padding:1rem; border-radius:10px; box-shadow:0 6px 16px rgba(0,0,0,0.06); }
+.fb-head { display:flex; justify-content:space-between; align-items:center; }
+.fb-name { font-weight:600; color:var(--text-primary); }
+.fb-stars { color:gold; }
+.fb-comment { margin-top:0.6rem; color:var(--text-secondary); }
+.fb-badge { margin-top:0.6rem; padding:0.25rem 0.6rem; display:inline-block; background:gold; color:#111; border-radius:8px; font-weight:700; }
+.featured { border:1px solid gold; }
