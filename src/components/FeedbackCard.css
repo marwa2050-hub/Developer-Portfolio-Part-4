@@ -1,7 +1,86 @@
-.feedback-card { background:var(--bg-secondary); padding:1rem; border-radius:10px; box-shadow:0 6px 16px rgba(0,0,0,0.06); }
-.fb-head { display:flex; justify-content:space-between; align-items:center; }
-.fb-name { font-weight:600; color:var(--text-primary); }
-.fb-stars { color:gold; }
-.fb-comment { margin-top:0.6rem; color:var(--text-secondary); }
-.fb-badge { margin-top:0.6rem; padding:0.25rem 0.6rem; display:inline-block; background:gold; color:#111; border-radius:8px; font-weight:700; }
-.featured { border:1px solid gold; }
+.feedback-card {
+  background: var(--bg-secondary);
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.fb-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fb-name {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.fb-stars {
+  color: gold;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.fb-stars select {
+  padding: 0.2rem 0.4rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-primary);
+  color: inherit;
+  font-weight: 600;
+}
+
+.fb-comment {
+  color: var(--text-secondary);
+}
+
+.fb-comment textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background: transparent;
+  color: inherit;
+  resize: vertical;
+  min-height: 60px;
+}
+
+.fb-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.fb-actions button {
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 6px;
+  background: var(--accent-color);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.fb-actions button:hover {
+  background: #ff8c42;
+}
+
+.fb-badge {
+  margin-top: 0.6rem;
+  padding: 0.25rem 0.6rem;
+  display: inline-block;
+  background: gold;
+  color: #111;
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+.featured {
+  border: 1px solid gold;
+}

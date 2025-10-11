@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom"; // فقط Routes و Route، **بدون Router**
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import AboutPage from "./pages/AboutPage";
@@ -19,7 +19,6 @@ function App() {
     localStorage.setItem("theme", theme);
   }, [theme]);
 
-  // small confetti feedback when switching to 'ocean' (custom)
   useEffect(() => {
     if (theme === "ocean") {
       setShowConfetti(true);
@@ -29,7 +28,7 @@ function App() {
   }, [theme]);
 
   return (
-    <Router>
+    <>
       {showConfetti && <Confetti />}
       <div className="app">
         <Navbar theme={theme} onThemeChange={setTheme} />
@@ -45,7 +44,7 @@ function App() {
         </main>
         <Footer />
       </div>
-    </Router>
+    </>
   );
 }
 
