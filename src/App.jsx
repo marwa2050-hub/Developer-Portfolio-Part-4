@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Routes, Route } from "react-router-dom"; // فقط Routes و Route، **بدون Router**
+import { Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import AboutPage from "./pages/AboutPage";
@@ -13,6 +14,7 @@ import Confetti from "./components/Confetti";
 function App() {
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
   const [showConfetti, setShowConfetti] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
@@ -33,14 +35,16 @@ function App() {
       <div className="app">
         <Navbar theme={theme} onThemeChange={setTheme} />
         <main className="main-content">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/projects/:id" element={<ProjectDetails />} />
-            <Route path="/contact" element={<ContactForm />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <AnimatePresence mode="wait">
+            <Routes location={location} key={location.pathname}>
+              <Route path="/" element={<motion.div exit={{opacity:0}} initial={{opacity:0}} animate={{opacity:1}}><Home /></motion.div>} />
+              <Route path="/about" element={<motion.div exit={{opacity:0}} initial={{opacity:0}} animate={{opacity:1}}><AboutPage /></motion.div>} />
+              <Route path="/projects" element={<motion.div exit={{opacity:0}} initial={{opacity:0}} animate={{opacity:1}}><Projects /></motion.div>} />
+              <Route path="/projects/:id" element={<motion.div exit={{opacity:0}} initial={{opacity:0}} animate={{opacity:1}}><ProjectDetails /></motion.div>} />
+              <Route path="/contact" element={<motion.div exit={{opacity:0}} initial={{opacity:0}} animate={{opacity:1}}><ContactForm /></motion.div>} />
+              <Route path="*" element={<motion.div exit={{opacity:0}} initial={{opacity:0}} animate={{opacity:1}}><NotFound /></motion.div>} />
+            </Routes>
+          </AnimatePresence>
         </main>
         <Footer />
       </div>
