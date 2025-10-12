@@ -1,17 +1,29 @@
-.testimonials-section {
-  padding: 2rem 1rem;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.testimonials-section h2 {
+/* Resume Link Styling */
+.resume-container {
   text-align: center;
-  color: var(--accent-color);
-  margin-bottom: 1rem;
+  margin: 1rem 0;
 }
 
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1rem;
+.resume-link {
+  display: inline-block;
+  background-color: var(--accent-color);
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.resume-link:hover {
+  background-color: #ff4d91; /* کمی تیره‌تر از accent */
+  transform: translateY(-2px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .resume-link {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
 }
