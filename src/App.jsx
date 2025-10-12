@@ -37,12 +37,36 @@ function App() {
         <main className="main-content">
           <AnimatePresence mode="wait">
             <Routes location={location} key={location.pathname}>
-              <Route path="/" element={<motion.div exit={{opacity:0}} initial={{opacity:0}} animate={{opacity:1}}><Home /></motion.div>} />
-              <Route path="/about" element={<motion.div exit={{opacity:0}} initial={{opacity:0}} animate={{opacity:1}}><AboutPage /></motion.div>} />
-              <Route path="/projects" element={<motion.div exit={{opacity:0}} initial={{opacity:0}} animate={{opacity:1}}><Projects /></motion.div>} />
-              <Route path="/projects/:id" element={<motion.div exit={{opacity:0}} initial={{opacity:0}} animate={{opacity:1}}><ProjectDetails /></motion.div>} />
-              <Route path="/contact" element={<motion.div exit={{opacity:0}} initial={{opacity:0}} animate={{opacity:1}}><ContactForm /></motion.div>} />
-              <Route path="*" element={<motion.div exit={{opacity:0}} initial={{opacity:0}} animate={{opacity:1}}><NotFound /></motion.div>} />
+              <Route path="/" element={
+                <motion.div exit={{opacity:0}} initial={{opacity:0}} animate={{opacity:1}}>
+                  <Home />
+                </motion.div>
+              } />
+              <Route path="/about" element={
+                <motion.div exit={{opacity:0}} initial={{opacity:0}} animate={{opacity:1}}>
+                  <AboutPage />
+                </motion.div>
+              } />
+              <Route path="/projects" element={
+                <motion.div exit={{opacity:0}} initial={{opacity:0}} animate={{opacity:1}}>
+                  <Projects />
+                </motion.div>
+              } />
+              <Route path="/projects/:id" element={
+                <motion.div exit={{opacity:0}} initial={{opacity:0}} animate={{opacity:1}}>
+                  <ProjectDetails />
+                </motion.div>
+              } />
+              <Route path="/contact" element={
+                <motion.div exit={{opacity:0}} initial={{opacity:0}} animate={{opacity:1}}>
+                  <ContactForm />
+                </motion.div>
+              } />
+              <Route path="*" element={
+                <motion.div exit={{opacity:0}} initial={{opacity:0}} animate={{opacity:1}}>
+                  <NotFound />
+                </motion.div>
+              } />
             </Routes>
           </AnimatePresence>
         </main>

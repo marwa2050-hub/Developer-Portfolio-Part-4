@@ -1,61 +1,86 @@
+/* Projects Section */
 .projects-section {
-  padding: 1rem 0;
+  padding: 4rem 2rem;
+  background-color: #f9fafb;
 }
 
 .projects-section h2 {
   text-align: center;
-  margin-bottom: 1rem;
-  color: var(--accent-color);
+  margin-bottom: 2rem;
+  color: #3b82f6; /* accent color */
+  font-size: 2rem;
+  font-weight: 700;
 }
 
+/* Controls: Search + Filter */
 .projects-controls {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.8rem;
-  margin-bottom: 1rem;
+  gap: 1rem;
+  margin-bottom: 2rem;
 }
 
-/* Search bar */
+/* Search Bar */
 .projects-controls input[type="text"] {
-  padding: 0.5rem 0.8rem;
-  border-radius: 8px;
-  border: 1px solid var(--border-color);
-  max-width: 300px;
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  border: 1px solid #d1d5db; /* gray-300 */
+  max-width: 350px;
   width: 100%;
   outline: none;
-  transition: border 0.2s;
+  transition: all 0.3s;
 }
+
 .projects-controls input[type="text"]:focus {
-  border-color: var(--accent-color);
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
 }
 
 /* Filters */
 .filters {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.6rem;
   flex-wrap: wrap;
   justify-content: center;
 }
 
 .filters button {
   background: transparent;
-  border: 1px solid var(--border-color);
-  padding: 0.4rem 0.7rem;
-  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  padding: 0.5rem 0.9rem;
+  border-radius: 10px;
   cursor: pointer;
-  transition: all 0.2s;
+  font-weight: 500;
+  transition: all 0.3s;
 }
 
 .filters button.active,
 .filters button:hover {
-  border-color: var(--accent-color);
-  background: rgba(255, 102, 163, 0.06);
+  border-color: #3b82f6;
+  background-color: rgba(59, 130, 246, 0.1);
+  color: #1e40af;
 }
 
-/* Grid */
+/* Projects Grid */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1rem;
+  gap: 1.5rem;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .projects-section {
+    padding: 3rem 1rem;
+  }
+
+  .projects-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .filters button {
+    padding: 0.45rem 0.8rem;
+    font-size: 0.95rem;
+  }
 }

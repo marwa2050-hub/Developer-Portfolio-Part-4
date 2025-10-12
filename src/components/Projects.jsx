@@ -10,21 +10,17 @@ const Projects = () => {
 
   const allTechs = Array.from(new Set(projectsData.flatMap(p => p.techStack)));
 
-  // Filter و جستجو
   const filtered = projects
     .filter(p => filter === "All" || p.techStack.includes(filter))
     .filter(p => p.name.toLowerCase().includes(search.toLowerCase()));
 
-  // آپدیت خودکار هر ۱۵ ثانیه
   useEffect(() => {
-    const interval = setInterval(() => {
-      setProjects([...projectsData]); // می‌توان اینجا data واقعی از API باشد
-    }, 15000);
+    const interval = setInterval(() => setProjects([...projectsData]), 15000);
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <section className="projects-section container">
+    <section className="projects-section container" id="projects">
       <h2>Projects</h2>
 
       <div className="projects-controls">
@@ -37,15 +33,21 @@ const Projects = () => {
         />
 
         <div className="filters" role="group" aria-label="Filter projects by tech">
-          <button className={filter==="All" ? "active" : ""} onClick={() => setFilter("All")}>All</button>
-          {allTechs.map((t) => (
-            <button key={t} className={filter===t ? "active" : ""} onClick={() => setFilter(t)}>{t}</button>
+          <button className={filter==="All" ? "active" : ""} onClick={() => setFilter("All")}>
+            All
+          </button>
+          {allTechs.map(t => (
+            <button key={t} className={filter===t ? "active" : ""} onClick={() => setFilter(t)}>
+              {t}
+            </button>
           ))}
         </div>
       </div>
 
       <div className="projects-grid">
-        {filtered.map(p => <ProjectCard key={p.id} project={p} />)}
+        {filtered.map(p => (
+          <ProjectCard key={p.id} project={p} />
+        ))}
       </div>
     </section>
   );

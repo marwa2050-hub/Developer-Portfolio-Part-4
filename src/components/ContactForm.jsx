@@ -12,7 +12,6 @@ const ContactForm = () => {
     JSON.parse(localStorage.getItem("feedbacks") || "[]")
   );
 
-  // Load saved draft
   useEffect(() => {
     const draft = JSON.parse(localStorage.getItem("contactDraft") || "null");
     if (draft) {
@@ -21,12 +20,10 @@ const ContactForm = () => {
     }
   }, []);
 
-  // Autosave draft
   useEffect(() => {
     localStorage.setItem("contactDraft", JSON.stringify(data));
   }, [data]);
 
-  // Debounce email validation
   const debouncedEmail = useDebounce(data.email, 400);
   useEffect(() => {
     if (debouncedEmail) {
@@ -68,18 +65,15 @@ const ContactForm = () => {
       setFeedbacks(next);
       localStorage.setItem("feedbacks", JSON.stringify(next));
 
-      // Clear form
       setData({ name: "", email: "", message: "" });
       localStorage.removeItem("contactDraft");
       setSavedHint(false);
 
-      // Confetti + toast
       confetti({ particleCount: 90, spread: 90, origin: { y: 0.6 } });
       alert(`Thank you, ${newFb.name}! Your message was sent.`);
     }
   };
 
-  // Handle feedback updates
   const handleFeedbackUpdate = (updatedFb) => {
     const next = feedbacks.map((fb) => (fb.id === updatedFb.id ? updatedFb : fb));
     setFeedbacks(next);
@@ -89,6 +83,10 @@ const ContactForm = () => {
   return (
     <section className="contact container">
       <h2>Contact</h2>
+      <p className="contact-message">
+        I’m open to internships, collaborations, and freelance work. Let’s connect!
+      </p>
+
       {savedHint && <p className="hint">You have unsent message data saved!</p>}
 
       <form className="contact-form" onSubmit={handleSubmit} noValidate>
@@ -96,6 +94,7 @@ const ContactForm = () => {
           <input
             name="name"
             placeholder="Your name"
+            aria-label="Your Name"
             value={data.name}
             onChange={handleChange}
           />
@@ -106,6 +105,7 @@ const ContactForm = () => {
           <input
             name="email"
             placeholder="Email (optional)"
+            aria-label="Your Email"
             value={data.email}
             onChange={handleChange}
           />
@@ -116,6 +116,7 @@ const ContactForm = () => {
           <textarea
             name="message"
             placeholder="Message"
+            aria-label="Your Message"
             value={data.message}
             onChange={handleChange}
             rows="6"
@@ -124,21 +125,15 @@ const ContactForm = () => {
         </label>
 
         <div className="form-actions">
-          <button type="submit">Send Message</button>
+          <button type="submit" aria-label="Send Message">Send Message</button>
         </div>
       </form>
 
       <div className="preview">
         <h3>Live Preview</h3>
-        <p>
-          <strong>Name:</strong> {data.name || "—"}
-        </p>
-        <p>
-          <strong>Email:</strong> {data.email || "—"}
-        </p>
-        <p>
-          <strong>Message:</strong> {data.message || "—"}
-        </p>
+        <p><strong>Name:</strong> {data.name || "—"}</p>
+        <p><strong>Email:</strong> {data.email || "—"}</p>
+        <p><strong>Message:</strong> {data.message || "—"}</p>
       </div>
 
       <div className="feedback-wall">

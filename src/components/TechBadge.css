@@ -1,1 +1,16 @@
-.tech-badge { background: rgba(255,102,163,0.12); color:var(--accent-color); padding:0.25rem 0.6rem; border-radius:8px; font-size:0.8rem; margin-right:0.4rem; }
+.tech-badge {
+  display: inline-block;
+  padding: 0.3rem 0.6rem;
+  background-color: var(--accent-color);
+  color: #fff;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-right: 0.4rem;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.tech-badge:hover {
+  transform: scale(1.05);
+  background-color: rgba(255, 102, 163, 0.8);
+}

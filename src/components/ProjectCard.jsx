@@ -8,7 +8,6 @@ const ProjectCard = ({ project }) => {
   const [open, setOpen] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
 
-  // Confetti برای پروژه featured
   useEffect(() => {
     if (project.featured) {
       setShowConfetti(true);
@@ -20,15 +19,31 @@ const ProjectCard = ({ project }) => {
   return (
     <article className="project-card">
       {showConfetti && <Confetti />}
-      <img src={project.image} alt={project.name} className="project-img" />
+      
+      <img
+        src={project.image}
+        alt={project.name}
+        className="project-img"
+        loading="lazy"
+      />
+
       <div className="project-body">
         <div className="project-head">
-          <h3>{project.name} {project.featured && <span className="star">🌟</span>}</h3>
+          <h3>
+            {project.name} {project.featured && <span className="star">🌟</span>}
+          </h3>
+          {project.role && <span className="project-role">{project.role}</span>}
         </div>
-        <p className="project-short">{project.shortDescription}</p>
 
         <div className="stack">
           {project.techStack.map((t, i) => <TechBadge key={i} tech={t} />)}
+        </div>
+
+        {/* Problem → Solution → Outcome */}
+        <div className="project-summary">
+          {project.problem && <p><strong>Problem:</strong> {project.problem}</p>}
+          {project.solution && <p><strong>Solution:</strong> {project.solution}</p>}
+          {project.outcome && <p><strong>Outcome:</strong> {project.outcome}</p>}
         </div>
 
         {/* Progress bar */}
@@ -44,17 +59,26 @@ const ProjectCard = ({ project }) => {
         )}
 
         <div className="project-actions">
-          <button onClick={() => setOpen(s => !s)}>{open ? "Hide Details" : "View Details"}</button>
-          <Link to={`/projects/${project.id}`} className="link-btn">Project Page</Link>
+          <button onClick={() => setOpen(s => !s)} aria-expanded={open}>
+            {open ? "Hide Details" : "View Details"}
+          </button>
+          <div className="project-links">
+            {project.liveLink && (
+              <a href={project.liveLink} target="_blank" rel="noreferrer" className="live-btn">
+                Live Demo
+              </a>
+            )}
+            {project.codeLink && (
+              <a href={project.codeLink} target="_blank" rel="noreferrer" className="code-btn">
+                GitHub
+              </a>
+            )}
+          </div>
         </div>
 
         {open && (
-          <div className="project-extra" aria-expanded={open}>
-            <p>{project.longDescription}</p>
-            <div className="project-links">
-              <a href={project.liveLink} target="_blank" rel="noreferrer">Live</a>
-              <a href={project.codeLink} target="_blank" rel="noreferrer">Code</a>
-            </div>
+          <div className="project-extra" aria-hidden={!open}>
+            {project.longDescription && <p>{project.longDescription}</p>}
           </div>
         )}
       </div>

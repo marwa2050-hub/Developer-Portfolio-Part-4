@@ -5,7 +5,7 @@ import "./Footer.css";
 const Footer = () => {
   const year = new Date().getFullYear();
   return (
-    <footer className="site-footer">
+    <footer className="site-footer" aria-label="Footer with social links">
       <div className="social">
         <a href="https://github.com/marwa2050-hub" target="_blank" rel="noreferrer" aria-label="GitHub"><FaGithub /></a>
         <a href="https://www.linkedin.com/in/marwa-noorestani-b8573a2a8" target="_blank" rel="noreferrer" aria-label="LinkedIn"><FaLinkedin /></a>

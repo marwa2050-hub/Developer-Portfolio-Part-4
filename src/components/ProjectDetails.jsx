@@ -11,7 +11,7 @@ const ProjectDetails = () => {
     return (
       <div className="project-notfound container">
         <h2>Project not found</h2>
-        <Link to="/projects">Back to Projects</Link>
+        <Link to="/projects" className="back-link">← Back to Projects</Link>
       </div>
     );
   }
@@ -20,11 +20,25 @@ const ProjectDetails = () => {
     <article className="project-details container">
       <img src={project.image} alt={project.name} className="detail-img" />
       <h1>{project.title}</h1>
-      <p className="detail-desc">{project.longDescription}</p>
+
+      <section className="problem-solution">
+        <div className="section-item">
+          <h3>Problem</h3>
+          <p>{project.problem || "—"}</p>
+        </div>
+        <div className="section-item">
+          <h3>Solution</h3>
+          <p>{project.solution || "—"}</p>
+        </div>
+        <div className="section-item">
+          <h3>Outcome</h3>
+          <p>{project.outcome || "—"}</p>
+        </div>
+      </section>
 
       <div className="detail-meta">
-        <div><strong>Tech:</strong> {project.techStack.join(", ")}</div>
-        <div><strong>Date:</strong> {project.date}</div>
+        <div><strong>Tech Stack:</strong> {project.techStack.join(", ")}</div>
+        {project.date && <div><strong>Date:</strong> {project.date}</div>}
       </div>
 
       <div className="detail-links">
