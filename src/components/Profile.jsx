@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { FaDownload } from "react-icons/fa"; // ← آیکن دانلود
 import ProfileImg from "../assets/profile.jpg";
+import ResumePDF from "../assets/Marwa_Resume.pdf";
 import "./Profile.css";
 
 const Profile = ({
@@ -47,8 +49,9 @@ const Profile = ({
             <li>Continuous learning</li>
           </ul>
 
-          {/* Optional CTA */}
-          <a href="/resume.pdf" className="cta-button" target="_blank" rel="noreferrer">
+          {/* CTA with icon */}
+          <a href={ResumePDF} target="_blank" rel="noreferrer" className="cta-button">
+            <FaDownload style={{ marginRight: "8px" }} />
             Download Resume
           </a>
         </div>

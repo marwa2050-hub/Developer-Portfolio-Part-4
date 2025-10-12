@@ -4,6 +4,7 @@
   margin: 1rem 0;
 }
 
+/* بهتر است از همان رنگ accent استفاده شود */
 .resume-link {
   display: inline-block;
   background-color: var(--accent-color);
@@ -12,12 +13,21 @@
   border-radius: 8px;
   font-weight: 600;
   text-decoration: none;
-  transition: background-color 0.3s, transform 0.2s;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* هنگام hover کمی افکت لطیف بده */
 .resume-link:hover {
   background-color: #ff4d91; /* کمی تیره‌تر از accent */
   transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+/* هماهنگی با Profile Section */
+.profile-card .cta-button,
+.profile-card .resume-link {
+  margin-top: 0.8rem;
 }
 
 /* Responsive adjustments */

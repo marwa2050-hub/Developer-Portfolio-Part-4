@@ -1,7 +1,6 @@
 import React from "react";
 import Header from "../components/Header";
 import Profile from "../components/Profile";
-import ResumePDF from "../assets/Marwa_Resume.pdf"; 
 import FeedbackCard from "../components/FeedbackCard";
 import feedbacksData from "../utils/feedbacksData";
 
@@ -36,24 +35,11 @@ const Home = () => {
           bio="I build clean, accessible, and beautiful interfaces using React. 
           I am seeking an internship in frontend development and thrive in teamwork, problem-solving, and continuous learning."
         />
-
-        {/* Resume Links */}
-        <div className="resume-container">
-          <a href={ResumePDF} target="_blank" rel="noreferrer" className="resume-link">
-            Download Resume (PDF)
-          </a>
-        </div>
       </section>
 
       {/* Testimonials Section */}
       <section className="testimonials-section">
         <h2>Testimonials</h2>
-        <div className="resume-container" style={{ textAlign: "center", marginBottom: "1rem" }}>
-          <a href={ResumePDF} target="_blank" rel="noreferrer" className="resume-link">
-            Download Resume (PDF)
-          </a>
-        </div>
-
         {feedbacksData.length === 0 ? (
           <p>No testimonials yet — be the first to leave feedback!</p>
         ) : (
