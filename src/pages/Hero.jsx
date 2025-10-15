@@ -1,23 +1,24 @@
-// src/pages/Hero.jsx
 import React from "react";
-import "./Hero.css"; // می‌توان CSS جداگانه برای Hero داشته باشیم
+import "./Hero.css";
+import profileImg from "../assets/profile.jpg";
+import cvFile from "../assets/Marwa_CV.pdf"; // فایل CV خود را اینجا بگذارید
 
 const Hero = () => {
   return (
     <section className="hero-section">
       <div className="hero-content">
-        <h1>Hi, I’m Marwa</h1>
-        <h2>Frontend Developer building modern and accessible web apps</h2>
+        <h1>Hi, I’m <span>Marwa</span></h1>
+        <h2>Frontend Developer building modern & accessible web apps</h2>
         <p>
-          Passionate about creating clean interfaces, continuous learning, and 
-          building responsive, user-friendly web applications.
+          Passionate about creating clean interfaces, solving problems, and continuously learning.
         </p>
-        <a href="#projects" className="cta-button">
-          View My Projects
-        </a>
+        <div className="hero-buttons">
+          <a href="#contact" className="cta-button">Contact Me</a>
+          <a href={cvFile} download className="download-button">Download CV</a>
+        </div>
       </div>
       <div className="hero-image">
-        <img src="/profile.jpg" alt="Marwa Profile" loading="lazy" />
+        <img src={profileImg} alt="Marwa Profile" />
       </div>
     </section>
   );

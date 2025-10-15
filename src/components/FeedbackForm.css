@@ -1,0 +1,252 @@
+:root {
+  --accent-color: #fff;       /* رنگ اصلی برای تم */
+  --bg-primary: #111;          /* پس‌زمینه فرم و کارت‌ها */
+  --bg-secondary: #000;        /* پس‌زمینه اصلی صفحه */
+  --text-primary: #fff;        /* متن اصلی */
+  --text-secondary: #ccc;      /* متن ثانویه */
+  --border-color: #333;        /* رنگ حاشیه‌ها */
+}
+
+.feedback-container {
+  max-width: 900px;
+  margin: 1.5rem auto;
+  padding: 1rem 1.2rem;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.feedback-container h2 {
+  text-align: center;
+  color: var(--accent-color);
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.feedback-subtext {
+  text-align: center;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Wrapper فرم */
+.feedback-form-wrapper {
+  background: var(--bg-secondary);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+}
+
+/* فرم */
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.feedback-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.feedback-form input,
+.feedback-form textarea,
+.feedback-form select {
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  font-size: 1rem;
+  outline: none;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  transition: border 0.2s, background 0.2s;
+}
+
+.feedback-form input:focus,
+.feedback-form textarea:focus,
+.feedback-form select:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 5px rgba(255,255,255,0.2);
+}
+
+/* دکمه Submit */
+.feedback-form button.submit-btn {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  background: var(--accent-color);
+  color: var(--text-primary);
+  font-weight: 600;
+  cursor: pointer;
+  align-self: flex-end;
+  transition: background 0.3s, color 0.3s, transform 0.2s;
+}
+
+.feedback-form button.submit-btn:hover {
+  background: rgba(255,255,255,0.8);
+  color: var(--bg-primary);
+  transform: translateY(-2px);
+}
+
+/* کارت‌ها */
+.feedback-wall {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+/* کارت تک بازخورد */
+.feedback-card {
+  background: var(--bg-secondary);
+  padding: 1.2rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.feedback-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+/* هدر کارت */
+.fb-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.05rem;
+}
+
+.fb-name {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.fb-stars {
+  color: gold;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.fb-comment {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+.fb-comment textarea {
+  width: 100%;
+  padding: 0.7rem;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  resize: vertical;
+  min-height: 90px;
+}
+
+.fb-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.6rem;
+}
+
+/* دکمه Edit - اصلاح شده */
+.fb-actions button.edit-btn {
+  padding: 0.45rem 0.9rem;
+  border: none;
+  border-radius: 6px;
+  background: #f39c12;  /* نارنجی تا روی پس‌زمینه تاریک دیده شود */
+  color: #111;          /* متن تیره */
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.fb-actions button.edit-btn:hover {
+  background: #ffa500;  /* هاور نارنجی روشن‌تر */
+  transform: translateY(-1px);
+}
+
+/* دکمه Save */
+.fb-actions button.save-btn {
+  padding: 0.45rem 0.9rem;
+  border: none;
+  border-radius: 6px;
+  background: var(--accent-color);
+  color: var(--text-primary);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.fb-actions button.save-btn:hover {
+  background: rgba(255,255,255,0.8);
+  color: var(--bg-primary);
+  transform: translateY(-1px);
+}
+
+/* دکمه Cancel */
+.fb-actions button.cancel-btn {
+  padding: 0.45rem 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fff;
+  color: #111;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.fb-actions button.cancel-btn:hover {
+  background: #f3f4f6;
+}
+
+/* Badge */
+.fb-badge {
+  margin-top: 0.6rem;
+  padding: 0.3rem 0.6rem;
+  display: inline-block;
+  background: gold;
+  color: #111;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.featured {
+  border: 1px solid gold;
+}
+
+/* ریسپانسیو */
+@media (max-width: 720px) {
+  .feedback-container {
+    padding: 0.8rem;
+  }
+
+  .fb-comment {
+    font-size: 0.9rem;
+  }
+
+  .fb-stars {
+    font-size: 0.9rem;
+  }
+
+  .fb-actions button {
+    padding: 0.35rem 0.7rem;
+  }
+
+  .fb-badge {
+    font-size: 0.8rem;
+  }
+}

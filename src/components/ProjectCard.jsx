@@ -19,7 +19,6 @@ const ProjectCard = ({ project }) => {
   return (
     <article className="project-card">
       {showConfetti && <Confetti />}
-
       <img
         src={project.image}
         alt={project.name}
@@ -41,7 +40,6 @@ const ProjectCard = ({ project }) => {
           ))}
         </div>
 
-        {/* Problem → Solution → Outcome */}
         {open && (
           <div className="project-summary">
             {project.problem && <p><strong>Problem:</strong> {project.problem}</p>}
@@ -51,7 +49,6 @@ const ProjectCard = ({ project }) => {
           </div>
         )}
 
-        {/* Progress bar */}
         {project.progress && (
           <div
             className="progress-bar"
@@ -79,7 +76,6 @@ const ProjectCard = ({ project }) => {
                 GitHub
               </a>
             )}
-            {/* اگر میخوای لینک مستقیم به صفحه ProjectDetails */}
             <Link to={`/projects/${project.id}`} className="details-link">
               Full Details Page
             </Link>

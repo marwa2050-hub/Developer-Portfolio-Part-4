@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { FaDownload } from "react-icons/fa"; // ← آیکن دانلود
+import { FaDownload } from "react-icons/fa";
 import ProfileImg from "../assets/profile.jpg";
 import ResumePDF from "../assets/Marwa_Resume.pdf";
 import "./Profile.css";
@@ -38,8 +38,7 @@ const Profile = ({
 
           {/* Career Goals */}
           <p className="career-goals">
-            Seeking a frontend internship where I can contribute to building
-            accessible and performant web applications.
+            Seeking a frontend internship to contribute to building accessible and performant web applications.
           </p>
 
           {/* Work Philosophy */}

@@ -1,23 +1,17 @@
 import React, { useState, useEffect } from "react";
 import ProjectCard from "./ProjectCard";
-import projectsData from "../utils/projectsData";
+import projectsData from "../utils/projectsData.js";
 import "./Projects.css";
 
 const Projects = () => {
   const [filter, setFilter] = useState("All");
-  const [projects, setProjects] = useState(projectsData);
   const [search, setSearch] = useState("");
 
   const allTechs = Array.from(new Set(projectsData.flatMap(p => p.techStack)));
 
-  const filtered = projects
+  const filtered = projectsData
     .filter(p => filter === "All" || p.techStack.includes(filter))
     .filter(p => p.name.toLowerCase().includes(search.toLowerCase()));
-
-  useEffect(() => {
-    const interval = setInterval(() => setProjects([...projectsData]), 15000);
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <section className="projects-section container" id="projects">

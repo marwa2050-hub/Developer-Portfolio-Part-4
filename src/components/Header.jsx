@@ -6,18 +6,19 @@ const Header = ({ title = "Marwa's Portfolio", message, quote }) => {
   return (
     <header className="site-header" aria-label="Portfolio Header">
       <motion.h1
-        initial={{ y: -10, opacity: 0 }}
+        className="gradient-text"
+        initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
       >
         {title}
       </motion.h1>
 
       {message && (
         <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
           className="header-message"
         >
           {message}
@@ -26,9 +27,9 @@ const Header = ({ title = "Marwa's Portfolio", message, quote }) => {
 
       {quote && (
         <motion.blockquote
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.7, ease: "easeOut" }}
           className="header-quote"
         >
           “{quote}”

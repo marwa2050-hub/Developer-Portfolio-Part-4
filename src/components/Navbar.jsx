@@ -33,6 +33,9 @@ function Navbar({ theme, onThemeChange }) {
         <li>
           <NavLink to="/contact" className={({ isActive }) => isActive ? "active" : ""}>Contact</NavLink>
         </li>
+        <li>
+          <NavLink to="/feedback" className={({ isActive }) => isActive ? "active" : ""}>Feedback</NavLink>
+        </li>
       </ul>
 
       <div className="theme-buttons">
